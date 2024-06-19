@@ -1,0 +1,60 @@
+server:
+  port: 9095
+
+
+spring:
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+            required: 'true'
+          timeout: '5000'
+          auth: 'true'
+          connection-timeout: '5000'
+          write timeout: '5000'
+    host: smtp.gmail.com
+    username: 'pedro.porras@vallegrande.edu.pe'
+    password: 'rwqt vvdl odyl pdvi'
+    port: 587
+  r2dbc:
+    url: r2dbc:postgresql://ep-proud-water-a4v95awh.us-east-1.aws.neon.tech/db_carta?sslmode=require
+    username: db_carta_owner
+    password: uS8Fmqi9DbPr
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+
+
+
+  kafka:
+    properties:
+      sasl:
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required
+            username='SXCNH5QU6LTTD3KI' password='27HGhvu7pxAoxY6MGFhnw11v4tS8QkKYiq7eq+sXkD6krp8kYOZizhvKKIDSCncj';
+        mechanism: PLAIN
+      session:
+        timeout:
+          ms: '45000'
+      security:
+        protocol: SASL_SSL
+    bootstrap-servers: pkc-4j8dq.southeastasia.azure.confluent.cloud:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: my-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
+
+
+
+
+
+
+
