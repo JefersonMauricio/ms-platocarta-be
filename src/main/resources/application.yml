@@ -18,10 +18,12 @@ spring:
     username: 'pedro.porras@vallegrande.edu.pe'
     password: 'rwqt vvdl odyl pdvi'
     port: 587
+
   r2dbc:
     url: r2dbc:postgresql://ep-proud-water-a4v95awh.us-east-1.aws.neon.tech/db_carta?sslmode=require
-    username: db_carta_owner
-    password: uS8Fmqi9DbPr
+    username: client1
+    password: dBkf82wmhzcu
+
   datasource:
     driver-class-name: org.postgresql.Driver
 

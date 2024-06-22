@@ -45,57 +45,57 @@ public class ReservaController {
     }
 
 
-    // Obtener reservas activas por restaurante 
+    // Obtener reservas por restaurante id activas
     @GetMapping("/obtener/restaurante/{restaurante_id}/activo")
     public Flux<ReservacionItem> getReservacionItemsActivosByRestauranteId(@PathVariable Integer restaurante_id) {
         return reservaService.getReservacionItemsByRestauranteIdAndEstado(restaurante_id, "A");
     }
 
-    // Obtener reservas inactivas por restaurante
+    // Obtener reservas por restaurante id inactivas
     @GetMapping("/obtener/restaurante/{restaurante_id}/inactivo")
     public Flux<ReservacionItem> getReservacionItemsInactivosByRestauranteId(@PathVariable Integer restaurante_id) {
         return reservaService.getReservacionItemsByRestauranteIdAndEstado(restaurante_id, "I");
     }
 
-    // Obtener reservas especificas del restaurante
+    // Obtener reservas por restaurante id y reserva id
     @GetMapping("/obtener/restaurante/{restaurante_id}/reserva/{id}")
     public Mono<ReservacionItem> getReservacionItemByRestauranteIdAndReservaId(@PathVariable Integer restaurante_id, @PathVariable Integer id) {
         return reservaService.getReservacionItemByRestauranteIdAndReservaId(restaurante_id, id);
     }
 
-    // Obtener reservas activas del cliente
+    // Obtener reservas por cliente id activas
     @GetMapping("/obtener/cliente/{cliente_id}/activo")
     public Flux<ReservacionItem> getReservacionItemsActivosByClienteId(@PathVariable Integer cliente_id) {
         return reservaService.getReservacionItemsByClienteIdAndEstado(cliente_id, "A");
     }
 
-    // Obtener reservas inactivas del cliente
+    // Obtener reservas por cliente id inactivas
     @GetMapping("/obtener/cliente/{cliente_id}/inactivo")
     public Flux<ReservacionItem> getReservacionItemsInactivosByClienteId(@PathVariable Integer cliente_id) {
         return reservaService.getReservacionItemsByClienteIdAndEstado(cliente_id, "I");
     }
 
-    // Obtener reservas especificas del cliente
+    // Obtener reservas por cliente id y reserva id
     @GetMapping("/obtener/cliente/{cliente_id}/reserva/{id}")
     public Mono<ReservacionItem> getReservacionItemByClienteIdAndReservaId(@PathVariable Integer cliente_id, @PathVariable Integer id) {
         return reservaService.getReservacionItemByClienteIdAndReservaId(cliente_id, id);
     }
 
 
-    // Creacion de una reserva
+    // Crear una reserva
     @PostMapping("/crear")
     public Mono<ReservacionItem> crearReserva(@RequestBody ReservaRequestDto reservaRequestDto) {
         return reservaService.createReserva(reservaRequestDto);
     }
 
-    //  Creacion de una reserva para restaurante
+    //  Crear una reserva por restaurante id
     @PostMapping("/crear/restaurante/{restaurante_id}")
     public Mono<ReservacionItem> createReservaByRestauranteId(@PathVariable Integer restaurante_id, @RequestBody ReservaRequestDto reservaRequestDto) {
         reservaRequestDto.setRestaurante_id(restaurante_id);
         return reservaService.createReserva(reservaRequestDto);
     }
 
-    //  Creacion de una reserva para el cliente
+    //  Crear una reserva por cliente id
     @PostMapping("/crear/cliente/{cliente_id}")
     public Mono<ReservacionItem> createReservaByClienteId(@PathVariable Integer cliente_id, @RequestBody ReservaRequestDto reservaRequestDto) {
         reservaRequestDto.setCliente_id(cliente_id);
@@ -109,7 +109,7 @@ public class ReservaController {
         return reservaService.editReservaById(id, reservaRequestDto);
     }
 
-    // Editar una reserva especifica del restaurante
+    // Editar una reserva por restaurante id y reserva id
     @PutMapping("/editar/restaurante/{restaurante_id}/reserva/{id}")
     public Mono<ReservacionItem> editReservaByRestauranteIdAndReservaId(@PathVariable Integer restaurante_id, @PathVariable Integer id, @RequestBody ReservaRequestDto reservaRequestDto) {
         return reservaService.editReservaByRestauranteIdAndReservaId(restaurante_id, id, reservaRequestDto);

@@ -29,6 +29,8 @@ public class ProductosItem {
 
     private String estado;
 
+    private  int id_restaurante;
+
     @Data
     public static class Categoriadetalle {
 

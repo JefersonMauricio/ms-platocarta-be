@@ -24,6 +24,8 @@ public class PlatoCartaDto {
 
     private int id_presentacion;
 
+    private  int id_restaurante;
+
     private int stock;
 
     private String image;
