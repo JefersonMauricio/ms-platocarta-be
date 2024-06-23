@@ -1,2 +1,2 @@
 # ms-platocarta-be
-![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=develop)
+https://github.com/JefersonMauricio/ms-platocarta-be/actions/workflows/build.yml/badge.svg
